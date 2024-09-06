@@ -1,11 +1,11 @@
 /* eslint-disable react/require-render-return */
-import { Component } from "../core/core";
-import aboutStore from "../store/about";
+import { Component } from '../core/core.js';
+import aboutStore from '../store/about.js';
 
 export default class About extends Component {
-  render() {
-    const { photo, name, email, github, blog } = aboutStore.state;
-    this.el.classList.add("container", "about");
+  render () {
+    const { photo, name, email, github, blog } = aboutStore.state
+    this.el.classList.add('container', 'about')
     this.el.innerHTML = /* html */ `
         <div 
             style="background-image: url(${photo})" 
@@ -21,6 +21,6 @@ export default class About extends Component {
         </p>
         <p><a href="${github}" target="_blank">GitHub</a></p>
         <p><a href="${blog}" target="_blank">Blog</a></p>
-    `;
+    `
   }
 }

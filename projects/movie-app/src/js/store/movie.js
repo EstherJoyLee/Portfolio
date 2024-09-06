@@ -1,8 +1,7 @@
-import { Store } from "../core/core";
-import handler from "/api/movie";
+import { Store } from "../core/core.js";
 
-// handler();
-
+const { REACT_APP_API_KEY } = process.env;
+console.log(REACT_APP_API_KEY);
 const store = new Store({
   searchText: "",
   page: 1,
@@ -30,8 +29,8 @@ export const searchMovies = async (page) => {
         page,
       }),
     });
+    console.log("res:", res);
     const { Search, totalResults, Response, Error } = await res.json();
-    console.log("Search!!!:", Search);
     if (Response === "True") {
       store.state.movies = [...store.state.movies, ...Search];
       store.state.pageMax = Math.ceil(Number(totalResults) / 10);

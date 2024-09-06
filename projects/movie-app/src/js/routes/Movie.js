@@ -1,9 +1,9 @@
-import { Component } from "../core/core";
-import movieStore, { getMovieDetails } from "../store/movie";
+import { Component } from '../core/core.js';
+import movieStore, { getMovieDetails } from '../store/movie.js';
 
 export default class Movie extends Component {
-  async render() {
-    this.el.classList.add("container", "the-movie");
+  async render () {
+    this.el.classList.add('container', 'the-movie')
     this.el.innerHTML = /* html */ `
         <div class="poster skeleton"></div>
         <div class="specs">
@@ -11,12 +11,12 @@ export default class Movie extends Component {
             <div class="labels skeleton"></div>
             <div class="plot skeleton"></div>
         </div>
-    `;
+    `
 
-    await getMovieDetails(history.state.id);
-    console.log(movieStore.state.movie);
-    const { movie } = movieStore.state;
-    const bigPoster = movie.Poster.replace("SX300", "SX700");
+    await getMovieDetails(history.state.id)
+    console.log(movieStore.state.movie)
+    const { movie } = movieStore.state
+    const bigPoster = movie.Poster.replace('SX300', 'SX700')
 
     this.el.innerHTML = /* html */ `
     <div style="background-image:url(${bigPoster})" class="poster"></div>
@@ -37,8 +37,8 @@ export default class Movie extends Component {
     <div>
         <h3>Ratings</h3>
         ${movie.Ratings.map((rating) => {
-          return `<p>${rating.Source} - ${rating.Value}</p>`;
-        }).join("")}
+          return `<p>${rating.Source} - ${rating.Value}</p>`
+        }).join('')}
     </div>
     <div>
         <h3>Actors</h3>
@@ -57,6 +57,6 @@ export default class Movie extends Component {
         <p>${movie.Genre}</p>
     </div>
 </div>
-    `;
+    `
   }
 }

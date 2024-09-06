@@ -1,14 +1,15 @@
-import { Component } from "../core/core";
-import aboutStore from "../store/about";
+import { Component } from '../core/core.js';
+import aboutStore from '../store/about.js';
 
 export default class TheFooter extends Component {
-  constructor() {
+  constructor () {
     super({
-      tagName: "footer",
-    });
+      tagName: 'footer'
+    })
   }
-  render() {
-    const { github, repository } = aboutStore.state;
+
+  render () {
+    const { github, repository } = aboutStore.state
     this.el.innerHTML = /* html */ `
         <div>
             <!-- movie-app GitHub repository address -->
@@ -23,6 +24,6 @@ export default class TheFooter extends Component {
                 JOY
             </a>
         </div>
-    `;
+    `
   }
 }

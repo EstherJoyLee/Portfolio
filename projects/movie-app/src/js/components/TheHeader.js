@@ -1,33 +1,34 @@
 /* eslint-disable react/require-render-return */
-import { Component } from "../core/core";
-import logo from "../../images/og_Image.gif";
+import { Component } from '../core/core.js';
+import logo from '../../images/og_Image.gif';
 
 export default class TheHeader extends Component {
-  constructor() {
+  constructor () {
     super({
-      tagName: "header",
+      tagName: 'header',
       state: {
         menus: [
           {
-            name: "Search",
-            href: "#/",
+            name: 'Search',
+            href: '#/'
           },
           {
-            name: "Movie",
-            href: "#/movie?id=tt4520988",
+            name: 'Movie',
+            href: '#/movie?id=tt4520988'
           },
           {
-            name: "About",
-            href: "#/about",
-          },
-        ],
-      },
-    });
-    window.addEventListener("popstate", () => {
-      this.render();
-    });
+            name: 'About',
+            href: '#/about'
+          }
+        ]
+      }
+    })
+    window.addEventListener('popstate', () => {
+      this.render()
+    })
   }
-  render() {
+
+  render () {
     this.el.innerHTML = /* html */ `
         <a href="#/" class="logo">
             <span>OMDbAPI</span>.COM
@@ -36,25 +37,25 @@ export default class TheHeader extends Component {
             <ul>
                 ${this.state.menus
                   .map((menu) => {
-                    const href = menu.href.split("?")[0];
-                    const hash = location.hash.split("?")[0];
-                    const isActive = href === hash;
+                    const href = menu.href.split('?')[0]
+                    const hash = location.hash.split('?')[0]
+                    const isActive = href === hash
                     return /* html */ `
                   <li>
                     <a 
-                        class='${isActive ? "active" : ""}'
+                        class='${isActive ? 'active' : ''}'
                         href="${menu.href}">
                         ${menu.name}
                     </a>
                   </li>
-                  `;
+                  `
                   })
-                  .join("")}
+                  .join('')}
             </ul>
         </nav>
         <a href="#/about" class="user">
             <img src="${logo}" alt="User">
         </a>
-    `;
+    `
   }
 }
