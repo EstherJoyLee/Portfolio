@@ -426,3 +426,5 @@ node_modules/
 dist/
 .vscode
 /projects/practice-component
+.vercel
+.env
