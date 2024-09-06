@@ -3,7 +3,7 @@ import "./resources/js/app";
 import { videos, images } from "./resources/js/assets";
 
 const getImagePath = (imageName) => {
-  return require(`./src/images/main/${imageName}.jpg`);
+  return require(`./resources/images/main/${imageName}.jpg`);
 };
 
 function Gallery() {
@@ -36,7 +36,8 @@ function App() {
 
   useEffect(() => {
     // 모든 article 요소에 이벤트 리스너 추가
-    articleRefs.current.forEach((articleEl) => {
+    const currentArticleRef = articleRefs.current;
+    currentArticleRef.forEach((articleEl) => {
       if (articleEl) {
         articleEl.addEventListener("mouseover", handleMouseOver);
         articleEl.addEventListener("mouseout", handleMouseOut);
@@ -45,7 +46,7 @@ function App() {
 
     // 컴포넌트 언마운트 시 이벤트 리스너 제거
     return () => {
-      articleRefs.current.forEach((articleEl) => {
+      currentArticleRef.forEach((articleEl) => {
         if (articleEl) {
           articleEl.removeEventListener("mouseover", handleMouseOver);
           articleEl.removeEventListener("mouseout", handleMouseOut);
