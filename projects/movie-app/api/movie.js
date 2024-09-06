@@ -12,4 +12,5 @@ export default async function handler(request, response) {
   const json = await res.json();
 
   response.status(200).json({ json });
+  alert("sdlkfjsdlfkj");
 }

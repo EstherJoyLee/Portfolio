@@ -1,4 +1,7 @@
 import { Store } from "../core/core";
+import handler from "../../../api/movie";
+
+handler();
 
 const store = new Store({
   searchText: "",
