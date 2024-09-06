@@ -4,7 +4,6 @@ require("dotenv").config();
 const { APIKEY } = process.env;
 
 export default async function handler(request, response) {
-  alert("sldkfj");
   const { title, page, id } = JSON.parse(request.body);
   const url = id
     ? `https://omdbapi.com?apikey=${APIKEY}&i=${id}&plot=full`
