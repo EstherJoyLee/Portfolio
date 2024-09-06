@@ -25,6 +25,9 @@ export const searchMovies = async (page) => {
   try {
     const res = await fetch("/api/movie", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         title: store.state.searchText,
         page,
