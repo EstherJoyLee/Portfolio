@@ -1,7 +1,6 @@
 import fetch from "node-fetch";
-require("dotenv").config();
 
-const { APIKEY } = process.env;
+const { APIKEY = "1505aff6" } = process.env;
 
 export default async function handler(request, response) {
   const { title, page, id } = JSON.parse(request.body);

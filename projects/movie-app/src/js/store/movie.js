@@ -1,7 +1,7 @@
 import { Store } from "../core/core";
-import handler from "../../../api/movie";
+import handler from "/api/movie";
 
-handler();
+// handler();
 
 const store = new Store({
   searchText: "",
@@ -23,7 +23,7 @@ export const searchMovies = async (page) => {
   }
 
   try {
-    const res = await fetch("../../../api/movie", {
+    const res = await fetch("/api/movie", {
       method: "POST",
       body: JSON.stringify({
         title: store.state.searchText,
@@ -48,7 +48,7 @@ export const searchMovies = async (page) => {
 
 export const getMovieDetails = async (id) => {
   try {
-    const res = await fetch("../../../api/movie", {
+    const res = await fetch("/api/movie", {
       method: "POST",
       body: JSON.stringify({
         id,
